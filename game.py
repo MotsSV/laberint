@@ -90,10 +90,37 @@ player = Player('images.jpg', 5, win_height - 80, 4)
 monster = Enemy('vorog.png', win_height - 80, 280, 2)
 final = GameSprite('завантаження.png', win_width - 120, win_height - 80, 0)
 
+w1 = Wall(100, 20, 450, 10)
+w2 = Wall(100, 480, 350, 10)
+w3 = Wall(100, 20, 10, 380)
+w4 = Wall(200, 130, 10, 350)
+w5 = Wall(450, 130, 10, 360)
+w6 = Wall(300, 20, 10, 350)
+w7 = Wall(390, 120, 130, 10)
+
+walls = [w1, w2, w3, w4, w5, w6, w7]
+
+barriers = [
+    w1, w2, w3, w4, w5, w6, w7, monster
+]
+
 game = True
 finish = False
 clock = time.Clock()
 FPS = 60
+
+font.init()
+font = font.Font(None, 70)
+
+win = font.render('YOU WIN!', True, (255, 215, 0))
+lose = font.render('YOU LOSE!', True, (180, 0, 0))
+
+mixer.init()
+mixer.music.load('lizogub-devochka-ujensdejj.ogg')
+mixer.music.play()
+
+money = mixer.Sound('')
+kick = mixer.Sound('')
 
 while game:
     for e in event.get():
